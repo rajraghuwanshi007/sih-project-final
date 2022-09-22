@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://kit.fontawesome.com/4fc31833c8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='/style.css') }}">
+    <title>Home Page</title>
+</head>
+
+<body class="min-w-[600px]">
+    <div
+        class="header w-full max-w-screen-xl items-center mx-auto flex flex-row md:justify-between justify-center my-5 px-4">
+        <img class="h-full md:block hidden" src="https://trackthemissingchild.gov.in/trackchild/images/ashok-stamva.png"
+            alt="" />
+        <img class="h-full md:block hidden" src="https://trackthemissingchild.gov.in/trackchild/images/mwcd-logo.png"
+            alt="" />
+        <div class="text-center text-xl font-bold md:w-1/3 w-full h-full flex flex-col flex-center" style="height: 50%">
+            <p style="color: green" class="">NATIONAL TRACKING SYSTEM</p>
+            <p class="line-around"><span>for</span></p>
+            <p style="color: orange" class="">MISSING & VULNERABLE CHILDREN</p>
+        </div>
+        <img class="h-full md:block hidden" src="https://trackthemissingchild.gov.in/trackchild/images/logo.png"
+            alt="" />
+    </div>
+    <div class="nav">
+        <ul
+            class="flex w-full max-w-screen-xl items-center mx-auto flex lg:flex-row flex-col justify-between px-4 uppercase font-semibold">
+            <li><i class="fa-solid fa-house py-3 pr-1"></i>Home</li>
+            <li><i class="fa-solid fa-circle-info py-3 pr-1"></i>about trackchild</li>
+            <li><i class="fa-solid fa-exclamation py-3 pr-1"></i>notice board</li>
+            <li><i class="fa-solid fa-people-group py-3 pr-1"></i>stakeholder's login</li>
+            <li><i class="fa-solid fa-comment-dots py-3 pr-1"></i>feedback</li>
+            <li><i class="fa-solid fa-gavel py-3 pr-1"></i>children related law</li>
+        </ul>
+    </div>
+    <main class="my-8">
+        <div class="mx-auto w-full xl:w-6/12 bg-slate-100 border-t-2 border-green-600 min-h-[inherit]">
+            <p class="bg-lime-600 font-bold text-center text-lg py-1 my-8 text-white">
+                Police Register
+            </p>
+            <form method="POST" action="" class="flex flex-col justify-center items-center min-h-[inherit] w-full">
+                {% for field, errors in form.errors.items() %}
+                {{ ', '.join(errors) }}
+                {% endfor %}
+                {{ form.hidden_tag() }}
+                <div class="flex flex-row justify-between m-2 ">
+                    <p class="text-slate-500">
+                        Username: <span class="text-red-600">*</span>
+                    </p>
+                    {{ form.username }}
+                </div>
+                <div class="flex flex-row justify-between m-2 ">
+                    <p class="text-slate-500">
+                        Password: <span class="text-red-600">*</span>
+                    </p>
+                    {{ form.password }}
+                </div>
+                <div class="bg-lime-600 text-white rounded-md text-center m-2 p-2 cursor-pointer">
+                    {{ form.submit(class="cursor-pointer border-0") }}
+                </div>
+                <div class="bg-lime-600 text-white rounded-md text-center m-2 p-2">
+                    <a href="{{ url_for('login') }}">Already have an account? Log in instead</a>
+                </div>
+            </form>
+        </div>
+    </main>
+    <footer class="text-white p-5">
+        <div class="w-full max-w-screen-xl mx-auto flex flex-row justify-between">
+            <div class="flex flex-col">
+                <p class="text-xl font-semibold uppercase border-b-2 border-blue-500">information</p>
+                <ul class="flex flex-col justify-between">
+                    <li><a href="#">About the Initiatives</a></li>
+                    <li><a href="#">Objectives</a></li>
+                    <li><a href="#">Important Legislations & Orders</a></li>
+                    <li><a href="#">Notice Board</a></li>
+                    <li><a href="#">Your Local Help</a></li>
+                    <li><a href="#">Do's & Don'ts</a></li>
+                    <li><a href="#">Glossary</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col">
+                <p class="text-xl font-semibold uppercase border-b-2 border-blue-500">web links</p>
+                <ul class="flex flex-col justify-between">
+                    <li class="semibold"><a href="#">Ministry of Women & Child Development</a></li>
+                    <li class="semibold"><a href="#">National Portal of India</a></li>
+                    <li class="semibold"><a href="#">Childline</a></li>
+                    <li class="semibold"><a href="#">Khoya-Paya Android App</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col md:block hidden">
+                <p class="text-xl font-semibold uppercase border-b-2 border-blue-500">key contacts</p>
+                <ul class="flex flex-col justify-between">
+                    <li class="semibold"><a href="#">Administrative</a></li>
+                    <li class="semibold"><a href="#">NIC-Nodal Officers</a></li>
+                    <li class="semibold"><a href="#">Contact Persons of States</a></li>
+                </ul>
+            </div>
+            <div class="flex flex-col md:block hidden">
+                <p class="text-xl font-semibold uppercase border-b-2 border-blue-500">technical help</p>
+                <ul class="flex flex-col justify-between">
+                    <li class="semibold"><a href="mailto:techsupport-vatsalya@gov.in">techsupport-vatsalya@gov.in</a>
+                    </li>
+                    <li class="flex-row py-4">
+                        <a href="#"><i class="fa-brands fa-facebook fa-3x pr-4"></i></a>
+                        <a href="#"><i class="fa-brands fa-twitter fa-3x"></i></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+</body>
+
+</html>

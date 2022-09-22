@@ -1,0 +1,27 @@
+*{
+  box-sizing: border-box;
+  transition: 0.5s;
+}
+
+.card{
+  background-color: rgb(203 213 225);
+  border: 1px solid grey;
+  width: 46%;
+}
+
+main{
+  min-height: 300px;
+}
+
+footer{
+  background-color: #04a6e2;
+}
+
+footer ul li:hover{
+  transform: translateX(10px);
+}
+
+input, select{
+  border: 1px solid grey;
+}
+
